@@ -33,7 +33,6 @@ def convert_prefixset_entry(entry):
     elif 'ge' in entry_list:
         midlen = int(entry_list[entry_list.index('ge')+1])
         maxlen = 32
-        # print(minlen,midlen,maxlen)
     elif 'le' in entry_list:
         midlen = minlen
         maxlen = int(entry_list[entry_list.index('le')+1])
