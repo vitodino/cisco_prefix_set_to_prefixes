@@ -59,7 +59,6 @@ def convert_prefixset_into_prefixes(prefixset):
 
 # if __name__ == '__main__':
 #     prefixset = '''prefix-set prefixes
-#       10.0.0.0/8 ge 8,
 #       172.16.0.0/12 ge 12,
 #       192.168.0.0/16 ge 16
 #     end-set
