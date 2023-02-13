@@ -17,7 +17,8 @@ def convert_prefixset_entry(entry):
     entry_list = entry.strip().split(' ')
     base = entry_list[0].split('/')[0]
     minlen = int(entry_list[0].split('/')[-1])
-    maxlen = minlen
+    midlen = minlen
+    maxlen = midlen
     if 'eq' in entry_list:
         midlen = int(entry_list[entry_list.index('eq')+1])
         maxlen = midlen
@@ -36,8 +37,6 @@ def convert_prefixset_entry(entry):
     elif 'le' in entry_list:
         midlen = minlen
         maxlen = int(entry_list[entry_list.index('le')+1])
-    else:
-        return [str(ipaddress.ip_network(entry))]
     for i in range(midlen,maxlen+1):
         subnetList += list(ipaddress.ip_network(f'{base}/{str(minlen)}').subnets(prefixlen_diff=i-minlen))
     for i in range(len(subnetList)):
