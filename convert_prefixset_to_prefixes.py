@@ -8,6 +8,10 @@ Created on Mon Feb 13 17:57:03 2023
 import ipaddress
 
 # This function is assuming ge value is never higher than le value
+
+# input type is string. (eg, '172.16.0.0/16 ge 17' or '172.16.0.0/16 le 32', or '172.16.0.0/16 ge 31 le 32', 
+# or '172.16.0.0/16 eq 32' or '172.16.0.0/16')
+# return list of subnets
 def convert_prefixset_entry(entry):
     subnetList = []
     entry_list = entry.strip().split(' ')
@@ -41,6 +45,8 @@ def convert_prefixset_entry(entry):
     return subnetList
 
 
+# input type is string. insert prefix-set configuration as input for below function
+# return list of subnets
 def convert_prefixset_into_prefixes(prefixset):
     entries = prefixset.split('\n')
     subnetList = []
